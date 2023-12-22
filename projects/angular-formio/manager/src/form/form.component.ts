@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormManagerService } from '../form-manager.service';
 import { FormManagerConfig } from '../form-manager.config';
 import { ActivatedRoute } from '@angular/router';
-import { FormioAppConfig } from '@formio/angular';
+import { FormioAppConfig } from '@modusoperandi/formio-angular';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -47,22 +47,22 @@ export class FormManagerFormComponent implements OnInit {
     }
     let embedCode = '<script type="text/javascript">';
     embedCode += '(function a(d, w, u) {';
-    embedCode +=    'var h = d.getElementsByTagName("head")[0];';
-    embedCode +=    'var s = d.createElement("script");';
-    embedCode +=    's.type = "text/javascript";';
-    embedCode +=    's.src = "' + this.options.viewer + '/assets/lib/seamless/seamless.parent.min.js";';
-    embedCode +=    's.onload = function b() {';
-    embedCode +=       'var f = d.getElementById("formio-form-' + this.service.formio.formId + '");';
-    embedCode +=       'if (!f || (typeof w.seamless === u)) {';
-    embedCode +=          'return setTimeout(b, 100);';
-    embedCode +=       '}';
-    embedCode +=       'w.seamless(f, {fallback:false}).receive(function(d, e) {' + goto + '});';
-    embedCode +=    '};';
-    embedCode +=    'h.appendChild(s);';
+    embedCode += 'var h = d.getElementsByTagName("head")[0];';
+    embedCode += 'var s = d.createElement("script");';
+    embedCode += 's.type = "text/javascript";';
+    embedCode += 's.src = "' + this.options.viewer + '/assets/lib/seamless/seamless.parent.min.js";';
+    embedCode += 's.onload = function b() {';
+    embedCode += 'var f = d.getElementById("formio-form-' + this.service.formio.formId + '");';
+    embedCode += 'if (!f || (typeof w.seamless === u)) {';
+    embedCode += 'return setTimeout(b, 100);';
+    embedCode += '}';
+    embedCode += 'w.seamless(f, {fallback:false}).receive(function(d, e) {' + goto + '});';
+    embedCode += '};';
+    embedCode += 'h.appendChild(s);';
     embedCode += '})(document, window);';
     embedCode += '</script>';
     embedCode += '<iframe id="formio-form-' + this.service.formio.formId + '" ';
-    embedCode +=     'style="width:100%;border:none;" height="800px" src="' + this.shareUrl + '&iframe=1"></iframe>';
+    embedCode += 'style="width:100%;border:none;" height="800px" src="' + this.shareUrl + '&iframe=1"></iframe>';
     this.embedCode = embedCode;
     this.modalRef = this.modalService.show(content, { class: 'modal-lg' });
   }

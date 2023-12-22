@@ -2,7 +2,7 @@ import { Input, Output, EventEmitter, ViewChild, TemplateRef, Component } from '
 import { each, clone } from 'lodash';
 import { GridHeaderComponent } from './GridHeaderComponent';
 import { GridService } from './grid.service';
-import {FormioPromiseService} from '@formio/angular';
+import { FormioPromiseService } from '@modusoperandi/formio-angular';
 
 @Component({
   template: ''
@@ -12,7 +12,7 @@ export class GridBodyComponent {
   @Input() actionAllowed: any;
   @Output() rowSelect: EventEmitter<any>;
   @Output() rowAction: EventEmitter<any>;
-  @ViewChild(TemplateRef, {static: true}) template: TemplateRef<any>;
+  @ViewChild(TemplateRef, { static: true }) template: TemplateRef<any>;
   public rows: Array<any>;
   public loading: Boolean;
   public firstItem = 0;
@@ -57,7 +57,7 @@ export class GridBodyComponent {
       this.skip = 0;
       this.loading = false;
       this.service.setRows(this.rows);
-      
+
       return this.rows;
     }
 

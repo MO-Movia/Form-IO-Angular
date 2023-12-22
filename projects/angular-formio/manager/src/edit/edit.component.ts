@@ -2,17 +2,17 @@ import { Component, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef } fr
 import { FormManagerService } from '../form-manager.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormManagerConfig } from '../form-manager.config';
-import { FormioAlerts } from '@formio/angular';
-import { FormBuilderComponent } from '@formio/angular';
+import { FormioAlerts } from '@modusoperandi/formio-angular';
+import { FormBuilderComponent } from '@modusoperandi/formio-angular';
 import _ from 'lodash';
 
 @Component({
   templateUrl: './edit.component.html'
 })
 export class FormManagerEditComponent implements AfterViewInit {
-  @ViewChild(FormBuilderComponent, {static: false}) builder: FormBuilderComponent;
-  @ViewChild('title', {static: false}) formTitle: ElementRef;
-  @ViewChild('type', {static: false}) formType: ElementRef;
+  @ViewChild(FormBuilderComponent, { static: false }) builder: FormBuilderComponent;
+  @ViewChild('title', { static: false }) formTitle: ElementRef;
+  @ViewChild('type', { static: false }) formType: ElementRef;
   public form: any;
   public loading: Boolean;
   public formReady: Boolean;
@@ -26,7 +26,7 @@ export class FormManagerEditComponent implements AfterViewInit {
     public ref: ChangeDetectorRef,
     public alerts: FormioAlerts
   ) {
-    this.form = {components: []};
+    this.form = { components: [] };
     this.formReady = false;
     this.loading = false;
     this.editMode = false;
@@ -45,7 +45,7 @@ export class FormManagerEditComponent implements AfterViewInit {
         this.ref.detectChanges();
         return true;
       }).catch(err => {
-        this.alerts.setAlert({type: 'danger', message: (err.message || err)});
+        this.alerts.setAlert({ type: 'danger', message: (err.message || err) });
         this.loading = false;
         this.ref.detectChanges();
         this.formReady = true;
@@ -57,7 +57,7 @@ export class FormManagerEditComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.route.url.subscribe( url => {
+    this.route.url.subscribe(url => {
       setTimeout(() => this.initBuilder((url[0].path === 'edit')), 0);
     });
   }
@@ -91,16 +91,16 @@ export class FormManagerEditComponent implements AfterViewInit {
       if (err._id && err.type) {
         throw err;
       }
-      this.alerts.setAlert({type: 'danger', message: (err.message || err)});
+      this.alerts.setAlert({ type: 'danger', message: (err.message || err) });
     });
   }
 
   onSave() {
     return this.saveForm().then((form) => {
       if (this.editMode) {
-        this.router.navigate(['../', 'view'], {relativeTo: this.route});
+        this.router.navigate(['../', 'view'], { relativeTo: this.route });
       } else {
-        this.router.navigate(['../', form._id, 'view'], {relativeTo: this.route});
+        this.router.navigate(['../', form._id, 'view'], { relativeTo: this.route });
       }
     });
   }

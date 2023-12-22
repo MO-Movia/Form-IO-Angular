@@ -1,10 +1,10 @@
-import {Component, EventEmitter} from '@angular/core';
-import {Utils, Components, ExtendedComponentSchema} from 'formiojs';
-import {GridHeaderComponent} from '../GridHeaderComponent';
-import {FormioPromiseService} from '@formio/angular';
-import {ComponentInstance, FormioForm} from '@formio/angular';
-import {GridColumn} from '../types/grid-column';
-import {GridHeader, SortType} from '../types/grid-header';
+import { Component, EventEmitter } from '@angular/core';
+import { Utils, Components, ExtendedComponentSchema } from 'formiojs';
+import { GridHeaderComponent } from '../GridHeaderComponent';
+import { FormioPromiseService } from '@modusoperandi/formio-angular';
+import { ComponentInstance, FormioForm } from '@modusoperandi/formio-angular';
+import { GridColumn } from '../types/grid-column';
+import { GridHeader, SortType } from '../types/grid-header';
 
 @Component({
   templateUrl: './SubmissionGridHeader.component.html'
@@ -16,13 +16,13 @@ export class SubmissionGridHeaderComponent extends GridHeaderComponent {
 
   load(formio: FormioPromiseService, query?: any, columns?: Array<GridColumn>) {
     query = query || {};
-    return formio.loadForm({params: query}).then((form: FormioForm) => {
+    return formio.loadForm({ params: query }).then((form: FormioForm) => {
       this.headers = [];
       this.formComponents = new Map<string, ExtendedComponentSchema>();
       this.setComponents(form.components);
       columns ? columns.forEach(column => {
-          this.setHeader(this.getHeaderForColumn(column, this.formComponents.get(column.path)));
-        }) : this.setComponentsHeaders(this.formComponents);
+        this.setHeader(this.getHeaderForColumn(column, this.formComponents.get(column.path)));
+      }) : this.setComponentsHeaders(this.formComponents);
 
       return this.headers;
     });

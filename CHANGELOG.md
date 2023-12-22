@@ -139,7 +139,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 5.0.0-rc.5
 ### Changed
- - NPM package to @formio/angular
+ - NPM package to @modusoperandi/formio-angular
 
 ## 5.0.0-rc.4
 ### Fixed

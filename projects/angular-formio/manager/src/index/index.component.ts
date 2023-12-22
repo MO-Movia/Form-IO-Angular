@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormManagerService } from '../form-manager.service';
 import { DefaultConfiguration, FormManagerConfig } from '../form-manager.config';
-import { FormioGridComponent } from '@formio/angular/grid';
+import { FormioGridComponent } from '@modusoperandi/formio-angular/grid';
 import { debounce } from 'lodash';
 
 @Component({
@@ -10,7 +10,7 @@ import { debounce } from 'lodash';
   styleUrls: ['./index.component.scss']
 })
 export class FormManagerIndexComponent implements OnInit {
-  @ViewChild(FormioGridComponent, {static: false}) formGrid: FormioGridComponent;
+  @ViewChild(FormioGridComponent, { static: false }) formGrid: FormioGridComponent;
   public gridQuery: any;
   public search = '';
   constructor(
@@ -19,8 +19,8 @@ export class FormManagerIndexComponent implements OnInit {
     public router: Router,
     public config: FormManagerConfig
   ) {
-    this.config = {...DefaultConfiguration, ...this.config};
-    this.gridQuery = {type: this.config.type, sort: 'title'};
+    this.config = { ...DefaultConfiguration, ...this.config };
+    this.gridQuery = { type: this.config.type, sort: 'title' };
     if (this.config.tag) {
       this.gridQuery.tags = this.config.tag;
     }
@@ -37,7 +37,7 @@ export class FormManagerIndexComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.gridQuery = {type: this.config.type, sort: 'title'};
+    this.gridQuery = { type: this.config.type, sort: 'title' };
     if (this.config.tag) {
       this.gridQuery.tags = this.config.tag;
     }
@@ -61,12 +61,12 @@ export class FormManagerIndexComponent implements OnInit {
     }
     localStorage.setItem('query', JSON.stringify(this.gridQuery));
     localStorage.setItem('searchInput', this.search);
-    this.formGrid.pageChanged({page: 1, itemPerPage: this.gridQuery.limit});
+    this.formGrid.pageChanged({ page: 1, itemPerPage: this.gridQuery.limit });
     this.formGrid.refreshGrid(this.gridQuery);
   }
 
   clearSearch() {
-    this.gridQuery = {type: this.config.type, sort: 'title'};
+    this.gridQuery = { type: this.config.type, sort: 'title' };
     if (this.config.tag) {
       this.gridQuery.tags = this.config.tag;
     }
@@ -74,7 +74,7 @@ export class FormManagerIndexComponent implements OnInit {
     localStorage.removeItem('searchInput');
     localStorage.removeItem('currentPage');
     this.search = '';
-    this.formGrid.pageChanged({page: 1});
+    this.formGrid.pageChanged({ page: 1 });
     this.formGrid.query = {};
     this.formGrid.refreshGrid(this.gridQuery);
   }

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormManagerService } from '../form-manager.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormioAlerts } from '@formio/angular';
-import { GridService } from '@formio/angular/grid';
+import { FormioAlerts } from '@modusoperandi/formio-angular';
+import { GridService } from '@modusoperandi/formio-angular/grid';
 
 @Component({
   templateUrl: './delete.component.html'
@@ -14,7 +14,7 @@ export class FormManagerDeleteComponent {
     public route: ActivatedRoute,
     public alerts: FormioAlerts,
     public gridService?: GridService
-  ) {}
+  ) { }
 
   onDelete() {
     this.managerService.formio.deleteForm().then(() => {
@@ -28,7 +28,7 @@ export class FormManagerDeleteComponent {
       }
 
       this.router.navigate(['../../'], { relativeTo: this.route });
-    }).catch(err => this.alerts.setAlert({type: 'danger', message: (err.message || err)}));
+    }).catch(err => this.alerts.setAlert({ type: 'danger', message: (err.message || err) }));
   }
 
   onCancel() {

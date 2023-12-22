@@ -12,17 +12,17 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import {FormioAlerts} from '@formio/angular';
-import {each} from 'lodash';
-import {Formio} from 'formiojs';
-import {GridHeaderComponent} from './GridHeaderComponent';
-import {GridBodyComponent} from './GridBodyComponent';
-import {GridFooterComponent} from './GridFooterComponent';
+import { FormioAlerts } from '@modusoperandi/formio-angular';
+import { each } from 'lodash';
+import { Formio } from 'formiojs';
+import { GridHeaderComponent } from './GridHeaderComponent';
+import { GridBodyComponent } from './GridBodyComponent';
+import { GridFooterComponent } from './GridFooterComponent';
 import FormComponents from './form/index';
 import SubmissionComponents from './submission/index';
-import {FormioPromiseService} from '@formio/angular';
-import {GridColumn} from './types/grid-column';
-import {GridHeader, SortType} from './types/grid-header';
+import { FormioPromiseService } from '@modusoperandi/formio-angular';
+import { GridColumn } from './types/grid-column';
+import { GridHeader, SortType } from './types/grid-header';
 
 @Component({
   selector: 'formio-grid',
@@ -49,9 +49,9 @@ export class FormioGridComponent implements OnChanges, OnInit, AfterViewInit {
   @Output() rowAction: EventEmitter<object>;
   @Output() createItem: EventEmitter<any>;
   @Output() error: EventEmitter<any>;
-  @ViewChild('headerTemplate', {read: ViewContainerRef, static: true}) headerElement: ViewContainerRef;
-  @ViewChild('bodyTemplate', {read: ViewContainerRef, static: true}) bodyElement: ViewContainerRef;
-  @ViewChild('footerTemplate', {read: ViewContainerRef, static: true}) footerElement: ViewContainerRef;
+  @ViewChild('headerTemplate', { read: ViewContainerRef, static: true }) headerElement: ViewContainerRef;
+  @ViewChild('bodyTemplate', { read: ViewContainerRef, static: true }) bodyElement: ViewContainerRef;
+  @ViewChild('footerTemplate', { read: ViewContainerRef, static: true }) footerElement: ViewContainerRef;
 
   public page = 0;
   public isLoading = false;
@@ -139,7 +139,7 @@ export class FormioGridComponent implements OnChanges, OnInit, AfterViewInit {
     }
 
     if (this.footer &&
-        (changes.createText && changes.createText.currentValue)) {
+      (changes.createText && changes.createText.currentValue)) {
       this.footer.createText = changes.createText.currentValue;
     }
   }

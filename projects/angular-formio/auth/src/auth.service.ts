@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable, Inject } from '@angular/core';
 import { FormioAuthConfig } from './auth.config';
-import { FormioAppConfig } from '@formio/angular';
+import { FormioAppConfig } from '@modusoperandi/formio-angular';
 import { get, each } from 'lodash';
 import { Formio } from 'formiojs';
 
@@ -192,12 +192,12 @@ export class FormioAuthService {
 
   logout() {
     this.setUser(null);
-      const namespace = Formio.namespace || 'formio';
-      if(localStorage.getItem(`${namespace}LogoutAuthUrl`)) {
-          window.open(localStorage.getItem(`${namespace}LogoutAuthUrl`), null, 'width=1020,height=618');
-          localStorage.removeItem(`${namespace}LogoutAuthUrl`)
-      }
-      this.handleLogout(namespace);
+    const namespace = Formio.namespace || 'formio';
+    if (localStorage.getItem(`${namespace}LogoutAuthUrl`)) {
+      window.open(localStorage.getItem(`${namespace}LogoutAuthUrl`), null, 'width=1020,height=618');
+      localStorage.removeItem(`${namespace}LogoutAuthUrl`)
+    }
+    this.handleLogout(namespace);
   }
 
   handleLogout(namespace) {

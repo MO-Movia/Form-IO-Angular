@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { FormioAppConfig } from '@formio/angular';
+import { FormioAppConfig } from '@modusoperandi/formio-angular';
 import { FormManagerConfig } from './form-manager.config';
 import { Formio } from 'formiojs';
 import { ActivatedRoute } from '@angular/router';
-import { FormioAuthService } from '@formio/angular/auth';
+import { FormioAuthService } from '@modusoperandi/formio-angular/auth';
 import _each from 'lodash/each';
 import _intersection from 'lodash/intersection';
 
@@ -18,7 +18,7 @@ export class FormManagerService {
   public actionAllowed: any;
   public form = null;
   public formSrc = '';
-  public perms = {delete: false, edit: false};
+  public perms = { delete: false, edit: false };
 
   constructor(
     public appConfig: FormioAppConfig,
@@ -80,7 +80,7 @@ export class FormManagerService {
             if (administrator._id === roleId) {
               this.access.formCreate = true;
               this.access.formView = true;
-              this.access.formSubmission= true;
+              this.access.formSubmission = true;
               this.access.formEdit = true;
               this.access.formPermission = true;
               this.access.formDelete = true;
@@ -92,7 +92,7 @@ export class FormManagerService {
                 this.access.formCreate = this.auth.formAccess.create_all.includes(roleId);
                 this.access.formEdit = this.auth.formAccess.update_all.includes(roleId);
                 this.access.formPermission = this.auth.formAccess.update_all.includes(roleId);
-                this.access.formDelete =  this.auth.formAccess.delete_all.includes(roleId);
+                this.access.formDelete = this.auth.formAccess.delete_all.includes(roleId);
                 this.access.formView = this.auth.formAccess.read_all.includes(roleId);
                 this.access.formSubmission = this.auth.formAccess.read_all.includes(roleId);
               }
@@ -100,7 +100,7 @@ export class FormManagerService {
                 this.access.formCreate = this.auth.formAccess.create_all.includes(roleId);
                 this.access.formEdit = this.auth.formAccess.update_all.includes(roleId);
                 this.access.formPermission = this.auth.formAccess.update_all.includes(roleId);
-                this.access.formDelete =  this.auth.formAccess.delete_all.includes(roleId);
+                this.access.formDelete = this.auth.formAccess.delete_all.includes(roleId);
                 this.access.formView = this.auth.formAccess.read_all.includes(roleId);
               }
             }
@@ -184,9 +184,11 @@ export class FormManagerService {
   }
 
   loadForms() {
-    return this.formio.loadForms({params: {
-      tags: this.config.tag
-    }});
+    return this.formio.loadForms({
+      params: {
+        tags: this.config.tag
+      }
+    });
   }
 
   createForm(form: any) {

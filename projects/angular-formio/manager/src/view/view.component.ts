@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormManagerConfig } from '../form-manager.config';
 import { FormManagerService } from '../form-manager.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormioAuthService } from '@formio/angular/auth';
+import { FormioAuthService } from '@modusoperandi/formio-angular/auth';
 import { Formio } from 'formiojs';
 
 @Component({
@@ -24,7 +24,7 @@ export class FormManagerViewComponent implements OnInit {
     this.renderOptions = {
       saveDraft: this.config.saveDraft
     };
-    this.submission = {data: {}};
+    this.submission = { data: {} };
   }
 
   ngOnInit() {
@@ -37,7 +37,7 @@ export class FormManagerViewComponent implements OnInit {
     this.service.formio.saveSubmission(this.submission).then(saved => {
       this.onSubmitDone.emit(saved);
       this.onSuccess.emit();
-      this.router.navigate(['../', 'submission', saved._id], {relativeTo: this.route});
+      this.router.navigate(['../', 'submission', saved._id], { relativeTo: this.route });
     }).catch((err) => this.onError.emit(err));
   }
 }

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { FormioModule } from '@formio/angular';
-import { FormioAlerts } from '@formio/angular';
+import { FormioModule } from '@modusoperandi/formio-angular';
+import { FormioAlerts } from '@modusoperandi/formio-angular';
 import { FormioGridComponent } from './grid.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormGridHeaderComponent } from './form/FormGridHeader.component';
@@ -46,4 +46,4 @@ import { TimeSince } from './form/time-since.pipe'
         GridService
     ]
 })
-export class FormioGrid {}
+export class FormioGrid { }
