@@ -1,5 +1,5 @@
 import { Output, EventEmitter, ViewChild, TemplateRef, Input, Component } from '@angular/core';
-import { FormioPromiseService } from '@modusoperandi/formio-angular';
+import { FormioPromiseService } from '@mo/formio-angular';
 import { GridHeader } from './types/grid-header';
 
 @Component({

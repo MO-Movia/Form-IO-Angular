@@ -1,4 +1,4 @@
-import { ComponentInstance } from '@modusoperandi/formio-angular';
+import { ComponentInstance } from '@mo/formio-angular';
 
 export interface GridColumn {
   label?: string;

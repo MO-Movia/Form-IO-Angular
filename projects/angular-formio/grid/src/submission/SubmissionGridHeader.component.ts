@@ -1,8 +1,8 @@
 import { Component, EventEmitter } from '@angular/core';
 import { Utils, Components, ExtendedComponentSchema } from 'formiojs';
 import { GridHeaderComponent } from '../GridHeaderComponent';
-import { FormioPromiseService } from '@modusoperandi/formio-angular';
-import { ComponentInstance, FormioForm } from '@modusoperandi/formio-angular';
+import { FormioPromiseService } from '@mo/formio-angular';
+import { ComponentInstance, FormioForm } from '@mo/formio-angular';
 import { GridColumn } from '../types/grid-column';
 import { GridHeader, SortType } from '../types/grid-header';
 

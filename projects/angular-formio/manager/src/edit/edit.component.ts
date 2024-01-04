@@ -2,8 +2,8 @@ import { Component, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef } fr
 import { FormManagerService } from '../form-manager.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormManagerConfig } from '../form-manager.config';
-import { FormioAlerts } from '@modusoperandi/formio-angular';
-import { FormBuilderComponent } from '@modusoperandi/formio-angular';
+import { FormioAlerts } from '@mo/formio-angular';
+import { FormBuilderComponent } from '@mo/formio-angular';
 import _ from 'lodash';
 
 @Component({

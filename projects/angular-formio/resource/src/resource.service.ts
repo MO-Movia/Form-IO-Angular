@@ -2,10 +2,10 @@ import { ApplicationRef, EventEmitter, Injectable, Optional } from '@angular/cor
 import { ActivatedRoute } from '@angular/router';
 import { FormioResourceConfig } from './resource.config';
 import { FormioResources } from './resources.service';
-import { FormioPromiseService } from '@formio/angular';
-import { FormioAlerts } from '@formio/angular';
-import { FormioAppConfig } from '@formio/angular';
-import { FormioRefreshValue } from '@formio/angular';
+import { FormioPromiseService } from '@mo/formio-angular';
+import { FormioAlerts } from '@mo/formio-angular';
+import { FormioAppConfig } from '@mo/formio-angular';
+import { FormioRefreshValue } from '@mo/formio-angular';
 import Promise from 'native-promise-only';
 import { Formio, Utils } from 'formiojs';
 import _ from 'lodash';
@@ -187,7 +187,7 @@ export class FormioResourceService {
     this.setContext(route);
     this.isLoading = true;
     this.resourceLoading = this.resourceLoaded = this.formio
-      .loadSubmission(null, {ignoreCache: true})
+      .loadSubmission(null, { ignoreCache: true })
       .then(
         (resource: any) => {
           this.resource = resource;

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { FormioAuthService } from '@formio/angular/auth';
+import { FormioAuthService } from '@mo/formio-angular/auth';
 import { FormioResourceService } from './resource.service';
 import { Subscription } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class FormioResourceComponent implements OnInit, OnDestroy {
   private paramsSubscription: Subscription;
-  public perms = {delete: false, edit: false};
+  public perms = { delete: false, edit: false };
 
   constructor(
     public service: FormioResourceService,

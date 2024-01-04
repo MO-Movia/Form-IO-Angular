@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormManagerService } from '../form-manager.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormioAlerts } from '@modusoperandi/formio-angular';
-import { GridService } from '@modusoperandi/formio-angular/grid';
+import { FormioAlerts } from '@mo/formio-angular';
+import { GridService } from '@mo/formio-angular/grid';
 
 @Component({
   templateUrl: './delete.component.html'

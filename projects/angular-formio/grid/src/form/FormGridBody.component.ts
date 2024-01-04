@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GridBodyComponent } from '../GridBodyComponent';
-import { FormioPromiseService } from '@modusoperandi/formio-angular';
+import { FormioPromiseService } from '@mo/formio-angular';
 
 @Component({
   selector: 'form-grid-body',

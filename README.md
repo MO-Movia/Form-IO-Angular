@@ -121,13 +121,13 @@ Usage
 To use this library within your project, you will first need to install it as a dependency.
 
 ```
-npm install --save @modusoperandi/formio-angular formiojs
+npm install --save @mo/formio-angular formiojs
 ```
 
 You can now include the module in your Angular application like so.
 
 ```js
-import { FormioModule } from '@modusoperandi/formio-angular';
+import { FormioModule } from '@mo/formio-angular';
 @NgModule({
     imports: [ BrowserModule, CommonModule, FormioModule ],
     declarations: [ AppComponent ],

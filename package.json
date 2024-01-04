@@ -1,5 +1,5 @@
 {
-  "name": "@modusoperandi/formio-angular",
+  "name": "@mo/formio-angular",
   "version": "7.0.0",
   "scripts": {
     "ng": "ng",
